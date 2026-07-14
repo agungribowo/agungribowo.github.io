@@ -6,7 +6,7 @@
   "scripts": {
     "threads": "node scripts/fetch-threads.mjs",
     "dev": "vite",
-    "build": "node scripts/fetch-threads.mjs && tsc -b && vite build",
+    "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
