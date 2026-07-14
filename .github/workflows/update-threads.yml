@@ -1,0 +1,23 @@
+name: Daily Threads Update
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.14.0
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install chromium
+      - run: npm run threads
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "auto: update threads [skip ci]"
+          file_pattern: src/data/threads.json

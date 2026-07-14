@@ -1,32 +1,25 @@
-import puppeteer from 'puppeteer-core'
+import { chromium } from 'playwright'
 import { writeFileSync } from 'fs'
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const OUT = resolve(__dirname, '..', 'src', 'data', 'threads.json')
-const EDGE_PATH = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'
 
-const browser = await puppeteer.launch({
-  executablePath: EDGE_PATH,
-  headless: 'new',
-  args: ['--no-sandbox', '--disable-setuid-sandbox'],
-})
+const browser = await chromium.launch({ headless: true })
+const page = await browser.newPage({ viewport: { width: 1280, height: 800 } })
 
-const page = await browser.newPage()
-await page.setViewport({ width: 1280, height: 800 })
-
-// Step 1: Scroll profile to load many posts
-await page.goto('https://www.threads.net/@agung.ribowo', { waitUntil: 'networkidle2', timeout: 30000 })
-await new Promise(r => setTimeout(r, 4000))
+// Scroll profile to load all posts
+await page.goto('https://www.threads.net/@agung.ribowo', { waitUntil: 'networkidle', timeout: 30000 })
+await page.waitForTimeout(4000)
 
 await page.evaluate(async () => {
   await new Promise(resolve => {
     let h = 0
-    const t = setInterval(() => { window.scrollBy(0, 500); h += 500; if (h > 6000) { clearInterval(t); resolve() } }, 400)
+    const t = setInterval(() => { window.scrollBy(0, 600); h += 600; if (h > 12000) { clearInterval(t); resolve() } }, 400)
   })
 })
-await new Promise(r => setTimeout(r, 3000))
+await page.waitForTimeout(3000)
 
 const postUrls = await page.evaluate(() => {
   const seen = new Set()
@@ -37,46 +30,46 @@ const postUrls = await page.evaluate(() => {
   return [...seen]
 })
 
-console.log(`Found ${postUrls.length} post URLs, fetching details...`)
+console.log(`Found ${postUrls.length} posts, fetching details...`)
 
-// Step 2: Visit each post page for accurate image+text pairing
+// Visit each post page, extract og:description (main post) + image
 const threads = []
+const seenImgPaths = new Set()
+
 for (const url of postUrls) {
   if (threads.length >= 6) break
   try {
-    await page.goto(url, { waitUntil: 'networkidle2', timeout: 20000 })
-    await new Promise(r => setTimeout(r, 2000))
+    await page.goto(url, { waitUntil: 'networkidle', timeout: 20000 })
+    await page.waitForTimeout(2000)
 
     const data = await page.evaluate(() => {
-      const img = [...document.querySelectorAll('img')].find(i => (i.width > 100 || i.height > 100) && !i.alt?.includes('profile'))
-      let text = ''
-      document.querySelectorAll('span').forEach(sp => {
-        const t = sp.textContent.trim()
-        if (t.length > text.length) text = t
-      })
-      return { image: img?.getAttribute('src') || '', text: text.slice(0, 600) }
+      const text = document.querySelector('meta[property="og:description"]')?.getAttribute('content')?.trim() || ''
+      const img = [...document.querySelectorAll('img')].find(
+        i => (i.width > 100 || i.height > 100) && !i.alt?.includes('profile')
+      )
+      const imgSrc = img?.getAttribute('src') || ''
+      const imgBase = imgSrc.split('?')[0] || imgSrc
+      return { text: text.slice(0, 600), image: imgSrc, imgBase }
     })
 
     if (data.text.length < 30) continue
 
-    // Deduplicate: skip if same text content as existing
-    const isDup = threads.some(t => {
-      const a = t.text.replace(/\s+/g, ' ').slice(0, 80)
-      const b = data.text.replace(/\s+/g, ' ').slice(0, 80)
-      return a === b
-    })
-    if (isDup) continue
+    if (data.imgBase && seenImgPaths.has(data.imgBase)) continue
+    if (data.imgBase) seenImgPaths.add(data.imgBase)
 
-    threads.push({ url, ...data })
+    const isTextDup = threads.some(t => t.text.slice(0, 80) === data.text.slice(0, 80))
+    if (isTextDup) continue
+
+    threads.push({ url, text: data.text, image: data.image })
     console.log(`  ✓ ${url.split('/post/')[1]}`)
   } catch (e) {
-    console.log(`  ✗ ${url.split('/post/')[1]}: ${e.message}`)
+    console.log(`  ✗ ${url.split('/post/')[1]}`)
   }
 }
 
 await browser.close()
 
-const final = threads.map((item, i) => ({
+const final = threads.slice(0, 6).map((item, i) => ({
   text: item.text,
   image: item.image || '',
   url: item.url,
@@ -85,3 +78,4 @@ const final = threads.map((item, i) => ({
 
 writeFileSync(OUT, JSON.stringify(final, null, 2))
 console.log(`\n✓ Saved ${final.length} threads`)
+final.forEach(r => console.log(`  • ${r.text.replace(/\n/g, ' ').slice(0, 70)}...`))
