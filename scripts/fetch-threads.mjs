@@ -7,21 +7,28 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const OUT = resolve(__dirname, '..', 'src', 'data', 'threads.json')
 
 const browser = await chromium.launch({ headless: true })
-const page = await browser.newPage({ viewport: { width: 1280, height: 800 } })
+const page = await browser.newPage({ viewport: { width: 1280, height: 1080 } })
 
 // Scroll profile to load all posts
 await page.goto('https://www.threads.net/@agung.ribowo', { waitUntil: 'networkidle', timeout: 30000 })
 await page.waitForTimeout(4000)
 
-await page.evaluate(async () => {
-  await new Promise(resolve => {
-    let h = 0
-    const t = setInterval(() => { window.scrollBy(0, 600); h += 600; if (h > 12000) { clearInterval(t); resolve() } }, 400)
+// Scroll step by step to load all posts
+let prevCount = 0
+for (let pass = 0; pass < 8; pass++) {
+  await page.evaluate(() => {
+    const h = document.body.scrollHeight
+    window.scrollTo(0, h)
   })
-})
-await page.waitForTimeout(3000)
+  await page.waitForTimeout(4000)
+  const count = await page.evaluate(() => document.querySelectorAll('a[href*="/post/"]').length)
+  console.log(`  pass ${pass + 1}: ${count} posts visible`)
+  if (count === prevCount && pass > 1) break
+  prevCount = count
+}
 
-const postUrls = await page.evaluate(() => {
+// Collect all unique post URLs
+const allPostUrls = await page.evaluate(() => {
   const seen = new Set()
   document.querySelectorAll('a[href*="/post/"]').forEach(a => {
     const h = a.getAttribute('href')
@@ -30,14 +37,16 @@ const postUrls = await page.evaluate(() => {
   return [...seen]
 })
 
-console.log(`Found ${postUrls.length} posts, fetching details...`)
+console.log(`Found ${allPostUrls.length} total post links`)
 
-// Visit each post page, extract og:description (main post) + image
-const threads = []
-const seenImgPaths = new Set()
+// Visit each post page, extract data; dedup by image, fill rest by text
+const withImg = []
+const withoutImg = []
+const seenImgs = new Set()
+const seenTexts = new Set()
 
-for (const url of postUrls) {
-  if (threads.length >= 6) break
+for (const url of allPostUrls) {
+  if (withImg.length >= 6) break
   try {
     await page.goto(url, { waitUntil: 'networkidle', timeout: 20000 })
     await page.waitForTimeout(2000)
@@ -47,21 +56,29 @@ for (const url of postUrls) {
       const img = [...document.querySelectorAll('img')].find(
         i => (i.width > 100 || i.height > 100) && !i.alt?.includes('profile')
       )
-      const imgSrc = img?.getAttribute('src') || ''
-      const imgBase = imgSrc.split('?')[0] || imgSrc
-      return { text: text.slice(0, 600), image: imgSrc, imgBase }
+      return { text: text.slice(0, 600), image: img?.getAttribute('src') || '' }
     })
 
     if (data.text.length < 30) continue
 
-    if (data.imgBase && seenImgPaths.has(data.imgBase)) continue
-    if (data.imgBase) seenImgPaths.add(data.imgBase)
+    const tKey = data.text.replace(/\s+/g, ' ').slice(0, 100)
+    if (seenTexts.has(tKey)) continue
+    seenTexts.add(tKey)
 
-    const isTextDup = threads.some(t => t.text.slice(0, 80) === data.text.slice(0, 80))
-    if (isTextDup) continue
-
-    threads.push({ url, text: data.text, image: data.image })
-    console.log(`  ✓ ${url.split('/post/')[1]}`)
+    if (data.image) {
+      const imgKey = data.image.split('?')[0]
+      if (seenImgs.has(imgKey)) {
+        withoutImg.push({ url, ...data })
+        console.log(`  △ ${url.split('/post/')[1]} (dup img)`)
+      } else {
+        seenImgs.add(imgKey)
+        withImg.push({ url, ...data })
+        console.log(`  ✓ ${url.split('/post/')[1]} (img)`)
+      }
+    } else {
+      withoutImg.push({ url, ...data })
+      console.log(`  ✓ ${url.split('/post/')[1]} (text)`)
+    }
   } catch (e) {
     console.log(`  ✗ ${url.split('/post/')[1]}`)
   }
@@ -69,7 +86,10 @@ for (const url of postUrls) {
 
 await browser.close()
 
-const final = threads.slice(0, 6).map((item, i) => ({
+// Unique images first, then fill with text-only / duplicate-image entries
+const threads = [...withImg, ...withoutImg].slice(0, 6)
+
+const final = threads.map((item, i) => ({
   text: item.text,
   image: item.image || '',
   url: item.url,
