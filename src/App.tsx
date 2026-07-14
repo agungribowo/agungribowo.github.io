@@ -336,6 +336,7 @@ function Footer() {
 
 function ThreadsSection() {
   const threads = threadsData.slice(0, 6)
+  const [imgErrors, setImgErrors] = useState<Record<number, boolean>>({})
 
   if (threads.length === 0) return null
 
@@ -355,7 +356,7 @@ function ThreadsSection() {
         <p className="mb-4 text-sm text-emerald-300/80 sm:text-base">
           Pemikiran dan catatan harian seputar teknologi, riset, dan engineering
         </p>
-        <div className="mx-auto h-1 w-20 rounded-full bg-linear-to-r from-yellow-500 to-emerald-500" />
+        <div className="mx-auto h-1 w-20 rounded-full bg-gradient-to-r from-yellow-500 to-emerald-500" />
       </div>
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {threads.map((thread, i) => (
@@ -370,18 +371,31 @@ function ThreadsSection() {
             whileInView="visible"
             viewport={{ once: true, margin: '-50px' }}
             whileHover={{ scale: 1.02 }}
-            className="group flex flex-col rounded-2xl border border-emerald-800/60 bg-emerald-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-emerald-600/80 hover:bg-emerald-900/60 hover:shadow-lg hover:shadow-emerald-900/30"
+            className="group flex flex-col overflow-hidden rounded-2xl border border-emerald-800/60 bg-emerald-900/40 backdrop-blur-sm transition-all duration-300 hover:border-emerald-600/80 hover:bg-emerald-900/60 hover:shadow-lg hover:shadow-emerald-900/30"
           >
-            <div className="mb-3 flex items-center gap-2 text-emerald-400">
-              <MessageSquare className="h-4 w-4" />
-              <span className="text-xs font-medium uppercase tracking-wider">Threads</span>
-            </div>
-            <p className="flex-1 whitespace-pre-line leading-relaxed text-emerald-200 text-sm line-clamp-6">
-              {thread.text}
-            </p>
-            <div className="mt-4 flex items-center gap-1.5 text-xs text-emerald-400 transition-colors duration-300 group-hover:text-yellow-400">
-              Buka di Threads
-              <ExternalLink className="h-3 w-3" />
+            {thread.image && !imgErrors[i] && (
+              <div className="relative aspect-video overflow-hidden bg-emerald-950">
+                <img
+                  src={thread.image}
+                  alt=""
+                  loading="lazy"
+                  onError={() => setImgErrors(prev => ({ ...prev, [i]: true }))}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+            )}
+            <div className="flex flex-1 flex-col p-5">
+              <div className="mb-3 flex items-center gap-2 text-emerald-400">
+                <MessageSquare className="h-4 w-4" />
+                <span className="text-xs font-medium uppercase tracking-wider">Threads</span>
+              </div>
+              <p className="flex-1 whitespace-pre-line leading-relaxed text-emerald-200 text-sm line-clamp-6">
+                {thread.text}
+              </p>
+              <div className="mt-4 flex items-center gap-1.5 text-xs text-emerald-400 transition-colors duration-300 group-hover:text-yellow-400">
+                Buka di Threads
+                <ExternalLink className="h-3 w-3" />
+              </div>
             </div>
           </motion.a>
         ))}

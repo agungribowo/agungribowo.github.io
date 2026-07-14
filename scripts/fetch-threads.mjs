@@ -8,14 +8,10 @@ const OUT = resolve(__dirname, '..', 'src', 'data', 'threads.json')
 const EDGE_PATH = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'
 
 function cleanText(raw) {
-  // Remove username+metadata prefix: "agung.ribowoPC GAMING12hMore" or "agung.ribowomagisterjourney1dMore"
   let t = raw.replace(/^[a-z.]+\w{0,10}[A-Z][A-Za-z\s]*?\d+[hdmw]More/, '')
-  // Split on next thread marker pattern
   const parts = t.split(/(?=[a-z.]+\w{0,10}[A-Z][A-Za-z\s]*?\d+[hdmw]More)/)
   t = parts[0]
-  // Remove trailing engagement stats: "TranslateLike2Comment6RepostShare"
   t = t.replace(/(Audio is muted)?\s*Translate(Like\d+)?(Comment\d+)?(Repost\d+)?(Share\d+)?\s*$/, '')
-  // Remove leftover "Like" patterns
   t = t.replace(/\s*(Like\d+|Comment\d+|Repost\d+|Share\d+)\s*$/, '')
   return t.trim()
 }
@@ -40,25 +36,38 @@ const result = await page.evaluate(() => {
       .map(h => h.startsWith('http') ? h : 'https://www.threads.net' + h)
   )]
 
-  const uniqueTexts = new Set()
+  const postImages = []
+  const seenSrc = new Set()
+  document.querySelectorAll('img').forEach(img => {
+    const src = img.getAttribute('src') || ''
+    if (!src || seenSrc.has(src)) return
+    // Skip avatars (too small), only take post images
+    if (img.width <= 100 && img.height <= 100) return
+    if (src.includes('static.cdninstagram') && !src.includes('/t51.')) return
+    seenSrc.add(src)
+    postImages.push(src)
+  })
+
+  const uniqueTexts = new Map()
   Array.from(document.querySelectorAll('span')).forEach(el => {
     const t = el.textContent.trim()
     if (t.length < 60) return
     if (t.includes('cookie') || t.includes('AI Researcher')) return
-    // Only take direct text (not deeply nested)
-    uniqueTexts.add(t)
+    const key = t.slice(0, 100)
+    if (!uniqueTexts.has(key) || t.length > uniqueTexts.get(key).length) {
+      uniqueTexts.set(key, t)
+    }
   })
 
-  // Filter out substrings (keep longest version)
-  const sorted = [...uniqueTexts].sort((a, b) => b.length - a.length)
+  const sorted = [...uniqueTexts.values()].sort((a, b) => b.length - a.length)
   const filtered = sorted.filter((t, i) =>
     !sorted.slice(0, i).some(other => other.includes(t))
   )
 
-  return { texts: filtered.slice(0, 10), links }
+  return { texts: filtered.slice(0, 10), links, postImages }
 })
 
-const { texts, links } = result
+const { texts, links, postImages } = result
 
 const cleaned = texts
   .map(t => cleanText(t))
@@ -68,12 +77,16 @@ const cleaned = texts
 
 const final = cleaned.map((text, i) => ({
   text,
+  image: postImages[i] || '',
   url: links[i * 2] || links[i] || 'https://www.threads.net/@agung.ribowo',
   timestamp: new Date(Date.now() - i * 86400000).toISOString(),
 }))
 
 writeFileSync(OUT, JSON.stringify(final, null, 2))
 console.log(`✓ Saved ${final.length} threads`)
-final.forEach((r, i) => console.log(`  ${i + 1}. ${r.text.replace(/\n/g, ' ').slice(0, 80)}...`))
+final.forEach((r, i) => {
+  console.log(`  ${i + 1}. ${r.text.replace(/\n/g, ' ').slice(0, 60)}...`)
+  if (r.image) console.log(`     img: ${r.image.slice(0, 80)}...`)
+})
 
 await browser.close()
