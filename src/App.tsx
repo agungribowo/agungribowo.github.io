@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { motion, type Variants } from 'framer-motion'
 import { Mail, MessageCircle, ExternalLink, ChevronRight, Server, RefreshCw, ShieldCheck } from 'lucide-react'
 
@@ -189,6 +190,13 @@ const portfolioItems = [
     description:
       'Pembuatan sekaligus manajemen infrastruktur website manufaktur plastik HDPE. Fokus pada representasi profesional dan stabilitas performa jangka panjang.',
   },
+  {
+    name: 'Jayatama Mandiri Steel',
+    url: 'https://jayatamamandiristeel.com',
+    image: '/portfolio-jms.jpg',
+    description:
+      'Pengembangan dan pemeliharaan website perusahaan distributor baja. Fokus pada representasi profesional, kemudahan navigasi, dan performa yang stabil bagi mitra bisnis.',
+  },
 ]
 
 function Portfolio() {
@@ -232,6 +240,11 @@ function Portfolio() {
                 src={item.image}
                 alt={item.name}
                 loading="lazy"
+                onError={(e) => {
+                  const img = e.currentTarget
+                  if (img.src.startsWith('data:')) return
+                  img.src = `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="600" height="337" viewBox="0 0 600 337"><rect width="600" height="337" fill="#064e3b"/><text x="300" y="168" text-anchor="middle" fill="#6ee7b7" font-family="system-ui" font-size="20" font-weight="600">${item.name}</text></svg>`)}`
+                }}
                 className="w-full transition-transform duration-500 group-hover:scale-105"
               />
             </div>
@@ -253,6 +266,12 @@ function Portfolio() {
 }
 
 function Footer() {
+  const waNum = () => {
+    const a = '281328'
+    const b = '996617'
+    return '6' + a + b
+  }
+
   return (
     <footer id="contact" className="border-t border-emerald-800/40 bg-emerald-950/80 backdrop-blur-sm">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
@@ -269,7 +288,7 @@ function Footer() {
           <div className="flex items-center justify-center gap-5">
             {[
               { icon: Mail, href: 'mailto:ribowoagung@gmail.com', label: 'Email' },
-              { icon: MessageCircle, href: 'https://wa.me/6281328996617', label: 'WhatsApp' },
+              { label: 'WhatsApp', icon: MessageCircle, onClick: waNum },
               {
                 label: 'LinkedIn',
                 href: 'https://linkedin.com/in/agungribowo',
@@ -280,18 +299,29 @@ function Footer() {
                 href: 'https://github.com/agungribowo',
                 svg: <><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" /></>,
               },
-            ].map(({ icon: Icon, href, label, svg }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="flex h-12 w-12 items-center justify-center rounded-xl border border-emerald-700/50 bg-emerald-900/40 text-emerald-300 backdrop-blur-sm transition-all duration-300 hover:border-yellow-500/60 hover:bg-yellow-500/10 hover:text-yellow-400 hover:scale-110"
-              >
-                {Icon ? <Icon className="h-5 w-5" /> : <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{svg}</svg>}
-              </a>
-            ))}
+            ].map(({ icon: Icon, href, label, onClick, svg }) =>
+              onClick ? (
+                <button
+                  key={label}
+                  onClick={() => window.open(`https://wa.me/${onClick()}`, '_blank', 'noopener,noreferrer')}
+                  aria-label={label}
+                  className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-xl border border-emerald-700/50 bg-emerald-900/40 text-emerald-300 backdrop-blur-sm transition-all duration-300 hover:border-yellow-500/60 hover:bg-yellow-500/10 hover:text-yellow-400 hover:scale-110"
+                >
+                  {Icon && <Icon className="h-5 w-5" />}
+                </button>
+              ) : (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="flex h-12 w-12 items-center justify-center rounded-xl border border-emerald-700/50 bg-emerald-900/40 text-emerald-300 backdrop-blur-sm transition-all duration-300 hover:border-yellow-500/60 hover:bg-yellow-500/10 hover:text-yellow-400 hover:scale-110"
+                >
+                  {Icon ? <Icon className="h-5 w-5" /> : <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{svg}</svg>}
+                </a>
+              )
+            )}
           </div>
           <p className="mt-12 text-sm text-emerald-700">
             &copy; {new Date().getFullYear()} Portfolio Web Developer. All rights reserved.
@@ -302,6 +332,54 @@ function Footer() {
   )
 }
 
+function FloatingWA() {
+  const [ready, setReady] = useState(false)
+
+  useEffect(() => {
+    const t = setTimeout(() => setReady(true), 4000)
+    return () => clearTimeout(t)
+  }, [])
+
+  const waNum = () => {
+    const a = '281328'
+    const b = '996617'
+    return '6' + a + b
+  }
+
+  const handleClick = () => {
+    if (!ready) return
+    const msg = encodeURIComponent(
+      'halo saya dari web portfolio github mau konsultasi pembuatan website'
+    )
+    window.open(`https://wa.me/${waNum()}?text=${msg}`, '_blank', 'noopener,noreferrer')
+  }
+
+  return (
+    <>
+      <a
+        href="https://wa.me/6281234567890?text=bot"
+        aria-hidden="true"
+        tabIndex={-1}
+        style={{ position: 'absolute', left: '-9999px', top: '-9999px' }}
+      >
+        contact
+      </a>
+      <motion.button
+        onClick={handleClick}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 1.5, type: 'spring', stiffness: 260, damping: 20 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        className="fixed bottom-6 right-6 z-50 flex cursor-pointer items-center gap-2.5 rounded-full bg-green-500 px-5 py-3 text-white shadow-lg shadow-green-500/30 transition-all duration-300 hover:bg-green-400 hover:shadow-green-400/40 active:scale-95 max-sm:bottom-4 max-sm:right-4 max-sm:px-4 max-sm:py-2.5 max-sm:text-sm"
+      >
+        <MessageCircle className="h-5 w-5 max-sm:h-4 max-sm:w-4" />
+        <span className="font-semibold">Konsultasi via WA</span>
+      </motion.button>
+    </>
+  )
+}
+
 export default function App() {
   return (
     <div className="min-h-screen bg-emerald-950">
@@ -309,6 +387,7 @@ export default function App() {
       <About />
       <Services />
       <Portfolio />
+      <FloatingWA />
       <Footer />
     </div>
   )
