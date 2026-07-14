@@ -356,7 +356,7 @@ function ThreadsSection() {
         <p className="mb-4 text-sm text-emerald-300/80 sm:text-base">
           Pemikiran dan catatan harian seputar teknologi, riset, dan engineering
         </p>
-        <div className="mx-auto h-1 w-20 rounded-full bg-gradient-to-r from-yellow-500 to-emerald-500" />
+        <div className="mx-auto h-1 w-20 rounded-full bg-linear-to-r from-yellow-500 to-emerald-500" />
       </div>
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {threads.map((thread, i) => (
