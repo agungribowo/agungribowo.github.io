@@ -21,7 +21,7 @@ const cardVariants: Variants = {
 function Hero() {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-4">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(16,185,129,0.12)_0%,_transparent_70%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.12)_0%,transparent_70%)]" />
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -43,7 +43,7 @@ function Hero() {
           className="mb-6 text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
         >
           Solusi Web Modern,{' '}
-          <span className="bg-gradient-to-r from-yellow-400 to-emerald-400 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-yellow-400 to-emerald-400 bg-clip-text text-transparent">
             Future-Proof
           </span>
           , dan Terintegrasi.
@@ -105,7 +105,7 @@ function About() {
           Pendekatan Engineering untuk{' '}
           <span className="text-yellow-400">Solusi Bisnis</span>
         </h2>
-        <div className="h-1 w-20 rounded-full bg-gradient-to-r from-yellow-500 to-emerald-500 mb-8" />
+        <div className="h-1 w-20 rounded-full bg-linear-to-r from-yellow-500 to-emerald-500 mb-8" />
         <p className="max-w-4xl text-base leading-relaxed text-emerald-200 sm:text-lg">
           Dengan latar belakang akademis di tingkat Magister Informatika, setiap proyek dikembangkan melalui pendekatan engineering yang terstruktur. Fokus utama saya adalah membangun infrastruktur web yang tidak hanya berfungsi hari ini, tetapi juga siap beradaptasi dengan kebutuhan masa depan. Mulai dari merancang arsitektur baru menggunakan ekosistem modern, hingga memastikan efisiensi pengelolaan data pada skala yang lebih besar.
         </p>
@@ -149,7 +149,7 @@ function Services() {
         <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
           Layanan <span className="text-yellow-400">Profesional</span>
         </h2>
-        <div className="mx-auto h-1 w-20 rounded-full bg-gradient-to-r from-yellow-500 to-emerald-500" />
+        <div className="mx-auto h-1 w-20 rounded-full bg-linear-to-r from-yellow-500 to-emerald-500" />
       </div>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((s, i) => (
@@ -213,9 +213,9 @@ function Portfolio() {
         <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
           Sistem yang Saya <span className="text-yellow-400">Pelihara</span>
         </h2>
-        <div className="mx-auto h-1 w-20 rounded-full bg-gradient-to-r from-yellow-500 to-emerald-500" />
+        <div className="mx-auto h-1 w-20 rounded-full bg-linear-to-r from-yellow-500 to-emerald-500" />
       </div>
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {portfolioItems.map((item, i) => (
           <motion.a
             key={item.name}
