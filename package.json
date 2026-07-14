@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "threads": "node scripts/fetch-threads.mjs",
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "node scripts/fetch-threads.mjs && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -26,6 +27,7 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
+    "puppeteer-core": "^21.11.0",
     "tailwindcss": "^4.3.0",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.59.2",

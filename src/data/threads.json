@@ -1,0 +1,32 @@
+[
+  {
+    "text": "🐱‍🏍Karena sebagian besar juga harus membagi waktu dengan pekerjaan dan aktivitas lainnya.\n💡Darisana mulai tersadar tugas kuliah sebenarnya bukan pekerjaan yang berdiri sendiri. \n🚀Kalau topik penelitian kita sudah punya arah...\nSetiap project bisa menjadi kesempatan untuk memperdalam bagian tertentu dari penelitian.\nAkhirnya saya mulai melihat setiap tugas dengan cara yang berbeda.\nBukan hanya sebagai syarat lulus mata kuliah.\nTetapi sebagai investasi untuk penelitian yang sedang dibangun.",
+    "url": "https://www.threads.net/@agung.ribowo/post/DawIBqGE3pK",
+    "timestamp": "2026-07-14T12:43:10.889Z"
+  },
+  {
+    "text": "🌾 Hari minggu kembali lagi ke desa, Kalau melihat karung-karung ini...\nBanyak orang mungkin hanya melihat pupuk kandang.\nSaya melihat bertahun-tahun pengalaman orang tua.\nDan sedikit demi sedikit...\n👉saya mencoba menambahkan cara berpikir seorang engineer ke dalam prosesnya.\n🔄Dulu kohe sapi hanya ditumpuk.\n🔄Menunggu sangat lama sampai siap digunakan.\n🔄Itulah proses yang diwariskan turun-temurun.",
+    "url": "https://www.threads.net/@agung.ribowo/post/DawIDBYk-gg",
+    "timestamp": "2026-07-13T12:43:10.890Z"
+  },
+  {
+    "text": "📑Tidak heran ketika dibuka dari perangkat lain, file tersebut tidak muncul.\nSolusinya bukan membuat sistem baru.\nSaya mengganti pendekatannya menggunakan:\n♻ rclone bisync\nDengan mode ini, perubahan di lokal maupun Google Drive sama-sama \ndiperiksa sebelum proses sinkronisasi dilakukan.",
+    "url": "https://www.threads.net/@agung.ribowo/post/DatlFGpAvC-",
+    "timestamp": "2026-07-12T12:43:10.890Z"
+  },
+  {
+    "text": "Setelah cek script yang dijalankan, Selama ini saya menggunakan:\nrclone sync gdrive:Workspace ~/Documents/Workspace\nArtinya sinkronisasi hanya berjalan dari Google Drive ke lokal.\n💥Akibatnya, setiap file baru yang dibuat dari laptop tidak terunggah ke Google Drive.",
+    "url": "https://www.threads.net/@agung.ribowo/post/DarDjifE9Pq",
+    "timestamp": "2026-07-11T12:43:10.890Z"
+  },
+  {
+    "text": "🚀Kenapa saya mulai melihat tugas kuliah sebagai investasi untuk tesis?\n📖Dulu saya kira tugas kuliah hanya mendapatkan nilai.\nTapi setelah menjalani S2 sebagian besar mata kuliah yang diambil sebenarnya saling terhubung.\n❌Materinya bukan mengulang S1.\n✅Tetapi memperdalamnya.",
+    "url": "https://www.threads.net/@agung.ribowo/post/DarDkVGkxa5",
+    "timestamp": "2026-07-10T12:43:10.890Z"
+  },
+  {
+    "text": "Dari pengalaman ini saya belajar satu hal.\n✅Service yang berjalan tanpa error belum tentu memenuhi kebutuhan kita.\n📈Monitoring memberi tahu bahwa sistem berjalan.\n🚀Tetapi hanya memahami requirement yang bisa memastikan sistem benar-benar menyelesaikan masalah.",
+    "url": "https://www.threads.net/@agung.ribowo/post/DaobcpuCYaO",
+    "timestamp": "2026-07-09T12:43:10.890Z"
+  }
+]

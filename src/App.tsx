@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { motion, type Variants } from 'framer-motion'
-import { Mail, MessageCircle, ExternalLink, ChevronRight, Server, RefreshCw, ShieldCheck } from 'lucide-react'
+import { Mail, MessageCircle, ExternalLink, ChevronRight, Server, RefreshCw, ShieldCheck, MessageSquare } from 'lucide-react'
+
+import threadsData from './data/threads.json'
 
 const easeOut = [0.25, 0.1, 0.25, 1] as const
 
@@ -123,7 +125,7 @@ const services = [
   },
   {
     icon: RefreshCw,
-    title: 'Modernisasi &amp; Migrasi Sistem',
+    title: 'Modernisasi & Migrasi Sistem',
     description:
       'Peningkatan arsitektur dari sistem lama ke tech stack modern untuk keamanan dan performa yang lebih optimal.',
   },
@@ -332,6 +334,62 @@ function Footer() {
   )
 }
 
+function ThreadsSection() {
+  const threads = threadsData.slice(0, 6)
+
+  if (threads.length === 0) return null
+
+  return (
+    <motion.section
+      id="threads"
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: '-80px' }}
+      className="mx-auto max-w-6xl px-4 py-28 sm:px-6"
+    >
+      <div className="mb-14 text-center">
+        <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
+          Konten <span className="text-yellow-400">Threads</span>
+        </h2>
+        <p className="mb-4 text-sm text-emerald-300/80 sm:text-base">
+          Pemikiran dan catatan harian seputar teknologi, riset, dan engineering
+        </p>
+        <div className="mx-auto h-1 w-20 rounded-full bg-linear-to-r from-yellow-500 to-emerald-500" />
+      </div>
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {threads.map((thread, i) => (
+          <motion.a
+            key={thread.url}
+            href={thread.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            custom={i}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            whileHover={{ scale: 1.02 }}
+            className="group flex flex-col rounded-2xl border border-emerald-800/60 bg-emerald-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-emerald-600/80 hover:bg-emerald-900/60 hover:shadow-lg hover:shadow-emerald-900/30"
+          >
+            <div className="mb-3 flex items-center gap-2 text-emerald-400">
+              <MessageSquare className="h-4 w-4" />
+              <span className="text-xs font-medium uppercase tracking-wider">Threads</span>
+            </div>
+            <p className="flex-1 whitespace-pre-line leading-relaxed text-emerald-200 text-sm line-clamp-6">
+              {thread.text}
+            </p>
+            <div className="mt-4 flex items-center gap-1.5 text-xs text-emerald-400 transition-colors duration-300 group-hover:text-yellow-400">
+              Buka di Threads
+              <ExternalLink className="h-3 w-3" />
+            </div>
+          </motion.a>
+        ))}
+      </div>
+    </motion.section>
+  )
+}
+
 function FloatingWA() {
   const [ready, setReady] = useState(false)
 
@@ -387,6 +445,7 @@ export default function App() {
       <About />
       <Services />
       <Portfolio />
+      <ThreadsSection />
       <FloatingWA />
       <Footer />
     </div>
