@@ -1,0 +1,38 @@
+[
+  {
+    "text": "💥Efek samping reset CMOS yang baru saya sadari keesokan harinya\nSetelah berhasil menghidupkan kembali PC yang sebelumnya hanya menampilkan No Display, saya pikir semuanya sudah selesai.\nTernyata belum.\n🔄Kemudian saya buka terminal untuk menjalankan Docker yang ada di WSL.\nSeperti biasa saya mengetik:\n👉 wsl\nYang muncul justru pesan bahwa Virtual Machine Platform belum aktif, atau virtualization dinonaktifkan.\n💥Awalnya panik. \"Loh, WSL saya ke mana?\"\nSempat terpikir apa harus install ulang.",
+    "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/746742988_17935233450337454_3960373685770612867_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=Mzk0MTQxNzY4MjY1MzQ0NDQ2MA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0OC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=6gFeQOwVXH0Q7kNvwHsIipy&_nc_oc=AdqzbWNkpRvj39eQruah2tnhbuErDEgXA_K8vDElRxEDNNoipzTj2OkJANpKMIitubc&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&_nc_gid=TGNUz6vWuze8d4DTiaOrtA&_nc_ss=7a22e&oh=00_AQC9TnAnDZfui1QGYuN10drEnZuAmFeVZrPbjUcBiaT9LQ&oe=6A5CD280",
+    "url": "https://www.threads.net/@agung.ribowo/post/Dayun_2AHls",
+    "timestamp": "2026-07-15T03:25:34.493Z"
+  },
+  {
+    "text": "💥Hal paling bikin panik: CPU nyala, monitor tetap No Display\nsaya mau cerita pengalaman kemarin baru pulang dari desa.\nKarena buru-buru, saya langsung pencet tombol power CPU.\n✅CPU hidup.\n✅Lampu nyala.\n✅Kipas muter.\n❓Tapi...\n\nKedua monitor cuma menampilkan:\n❌No Display.\nAwalnya saya pikir cuma masalah sepele.\n\nSaya mulai cek satu per satu:\n👉kabel monitor,\n👉adaptor monitor,\n👉tunggu beberapa menit,\n👉hard shutdown,\n👉nyalakan lagi.\n\n💥Hasilnya tetap sama.",
+    "image": "https://scontent-sjc3-1.cdninstagram.com/v/t51.82787-15/746780014_17935232391337454_2257078473454420613_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=Mzk0MDY4NDk3MjIzOTg0NTk2Mg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0OC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=WzKwf2kZPSgQ7kNvwHDxWJI&_nc_oc=Adr2JWmqV0kuzDeeSqzL73ZHAGfQPB-oW_m1mgGLRWOATbqqS6JUXJdcKfkctCXfXUM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sjc3-1.cdninstagram.com&_nc_gid=OdeG7PLVhSbEGH9pWbn1kg&_nc_ss=7a22e&oh=00_AQA7kFNqDXwsC78pzRu8tnWrNbCm7nbYeo7W6P4NYCp0uw&oe=6A5CB752",
+    "url": "https://www.threads.net/@agung.ribowo/post/DawIBqGE3pK",
+    "timestamp": "2026-07-14T03:25:34.493Z"
+  },
+  {
+    "text": "🚀Kenapa saya mulai melihat tugas kuliah sebagai investasi untuk tesis?\n📖Dulu saya kira tugas kuliah hanya mendapatkan nilai.\nTapi setelah menjalani S2 sebagian besar mata kuliah yang diambil sebenarnya saling terhubung.\n❌Materinya bukan mengulang S1.\n✅Tetapi memperdalamnya.\n\nTantangan belajar di S2 itu hampir setiap mata kuliah juga memiliki project.\nBahkan dosen mengarahkan project tersebut berkembang menjadi paper.\nWalaupun pada praktiknya tidak semua mahasiswa berhasil menerbitkan paper.",
+    "image": "https://scontent-sjc3-1.cdninstagram.com/v/t51.82787-15/734862595_17934172674337454_7579673917477813108_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&ig_cache_key=MzkzOTk2ODE3MjczMTU4MzE3MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0OC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=AyjMUkYvRyoQ7kNvwF2fhjs&_nc_oc=Adp7gL2JOuIXDbIJCifA8MDp29iKtuHFg5rvx4Pn7JKFwWIh5KD2BWmZxOP-1zgvOWk&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sjc3-1.cdninstagram.com&_nc_gid=5YJygrCe770JJ55Ks-w5kg&_nc_ss=7a22e&oh=00_AQBeQE1qMRPm0-KBRGGubeu9iVCKRsvgkX-aj14g_FiABQ&oe=6A5CCB6F",
+    "url": "https://www.threads.net/@agung.ribowo/post/DatlC2iAsrD",
+    "timestamp": "2026-07-13T03:25:34.493Z"
+  },
+  {
+    "text": "🌱 Kemarin saya sempat bercerita tentang proses menyiapkan pupuk kandang. Hari ini masuk tahap berikutnya yaitu implementasi di lahan untuk kacang tanah. 🥜 \nVideonya memang sederhana (bahkan direkam sambil buru-buru 😊), tapi buat saya ini penting sebagai dokumentasi. \n\n🧪Aktivitas sederhana seperti ini yang mengawali ide saya meneliti klasifikasi penyakit daun kacang tanah menggunakan computer vision.\n\n🔁Karena saya ingin melihat setiap prosesnya, bukan hanya hasil panennya.",
+    "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.71878-15/743841098_1052874767177589_3774698362887126956_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=107&ig_cache_key=MzkzOTI1NzkzNTQxNTQ2NDkzOA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuNjQwLnNkci52aWRlb19kZWZhdWx0X2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=IPeOwlBiEy4Q7kNvwFFc7Km&_nc_oc=AdpgD8mZgE_B_S7HG0wxR74uH1LcSOhKASJXgXtNIkEcggGTpwHcX_-VWWFr9mrpH-U&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&_nc_gid=c4HzPIyDcRfxAb_iVylMnA&_nc_ss=7a22e&oh=00_AQACwp3jLdI6uEQDw17NYmUQHL0PaxWjeDUBGKMQLHxxGg&oe=6A5CD7DE",
+    "url": "https://www.threads.net/@agung.ribowo/post/DarDjifE9Pq",
+    "timestamp": "2026-07-12T03:25:34.493Z"
+  },
+  {
+    "text": "🌾 Hari minggu kembali lagi ke desa, Kalau melihat karung-karung ini...\nBanyak orang mungkin hanya melihat pupuk kandang.\nSaya melihat bertahun-tahun pengalaman orang tua.\nDan sedikit demi sedikit...\n👉saya mencoba menambahkan cara berpikir seorang engineer ke dalam prosesnya.\n🔄Dulu kohe sapi hanya ditumpuk.\n🔄Menunggu sangat lama sampai siap digunakan.\n🔄Itulah proses yang diwariskan turun-temurun.",
+    "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/733195051_17933511936337454_6132453892927452992_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MzkzNDE3MDA1MTEwNDM2MzE0NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMjU2MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=Fv9IsDEmhPsQ7kNvwEgEKIc&_nc_oc=AdoMRUrXM5oR03RbIPAfxiVnKgGi6E08cT2yjE84OmShfsOu5_jhsc3Wh0rd1PI2iQs&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&_nc_gid=FvhpwR78dvLoUeRYsesz8A&_nc_ss=7a22e&oh=00_AQDCi259cVPH67SsATZG7i5I3xP2q5SNmwnWU7Zoj0EhBQ&oe=6A5CC89F",
+    "url": "https://www.threads.net/@agung.ribowo/post/DaY-tKzDjLK",
+    "timestamp": "2026-07-11T03:25:34.493Z"
+  },
+  {
+    "text": "😭Soalnya di dalam WSL sudah ada environment kerja, Docker, dan berbagai konfigurasi yang sudah digunakan lama.\nAkhirnya memilih restart komputer dan masuk BIOS.\n📑Saya mulai cek satu per satu pengaturan.\nTernyata penyebabnya sederhana.\n👉Intel Virtualization berubah menjadi Disabled.\n❓Kemungkinan besar karena sehari sebelumnya saya melakukan reset CMOS, sehingga seluruh konfigurasi BIOS kembali ke pengaturan default.\n\nSaya aktifkan kembali Intel Virtualization. Simpan konfigurasi.\nRestart.",
+    "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/746742988_17935233450337454_3960373685770612867_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=Mzk0MTQxNzY4MjY1MzQ0NDQ2MA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0OC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=6gFeQOwVXH0Q7kNvwHsIipy&_nc_oc=AdqzbWNkpRvj39eQruah2tnhbuErDEgXA_K8vDElRxEDNNoipzTj2OkJANpKMIitubc&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&_nc_gid=15n5C4wTHABSXpiGmbxCsg&_nc_ss=7a22e&oh=00_AQAvHZ2awjLSzwRkL4pv790G1ae9g3iYtqaPwiil7iR89Q&oe=6A5CD280",
+    "url": "https://www.threads.net/@agung.ribowo/post/Dayuo5LAEqV",
+    "timestamp": "2026-07-10T03:25:34.493Z"
+  }
+]
