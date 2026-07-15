@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react'
 import { motion, type Variants } from 'framer-motion'
 import { Mail, MessageCircle, ExternalLink, ChevronRight, Server, RefreshCw, ShieldCheck, MessageSquare } from 'lucide-react'
 
-import threadsData from './data/threads.json'
-
 const easeOut = [0.25, 0.1, 0.25, 1] as const
 
 const sectionVariants: Variants = {
@@ -335,8 +333,15 @@ function Footer() {
 }
 
 function ThreadsSection() {
-  const threads = threadsData.slice(0, 6)
+  const [threads, setThreads] = useState<{ text: string; image: string; url: string; timestamp: string }[]>([])
   const [imgErrors, setImgErrors] = useState<Record<number, boolean>>({})
+
+  useEffect(() => {
+    fetch('/data/threads.json')
+      .then(res => res.json())
+      .then(data => setThreads(data.slice(0, 6)))
+      .catch(() => setThreads([]))
+  }, [])
 
   if (threads.length === 0) return null
 

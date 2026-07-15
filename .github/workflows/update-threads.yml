@@ -20,4 +20,4 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "auto: update threads [skip ci]"
-          file_pattern: src/data/threads.json
+          file_pattern: public/data/threads.json
