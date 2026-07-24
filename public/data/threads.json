@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "text": "🛠️ VPS Maintenance #04 - Checklist Bulanan VPS\nBanyak orang baru mengecek VPS ketika sudah bermasalah.\n💥Disk penuh.\n💥CPU tinggi.\n💥Service tiba-tiba mati.\nPadahal sebagian besar masalah bisa dicegah dengan rutinitas sederhana.\nIni checklist maintenance VPS yang saya lakukan setiap awal bulan.\n\n👉Pertama:\n💾 Cek penggunaan disk\n\ndf -h /\n\nKenapa?\nKarena disk penuh sering menjadi masalah yang datang diam-diam.\nDari aplikasi gagal menulis data, container restart, sampai backup yang tidak berjalan.",
+    "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/753267529_17936792541337454_6146237045492294426_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&ig_cache_key=Mzk0Nzk0MDcxMjgyMjE1MDg4Mg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0OC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=I05sw-sl22wQ7kNvwGxdxQ6&_nc_oc=Adq8Ps8bVJy6AB5Ks9h2Cx01EdL3J-YPj4tX4OexghTEZ4DuCNfs2DWBt1f_SrVAswQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_gid=RFMLNQ4b5EZ7jptFMPsh5A&_nc_ss=7a22e&oh=00_AQDrYDAiYQMgz78BEr60hE9JoIOeGcieSDlJ3SAeyzxpGA&oe=6A68DED1",
+    "url": "https://www.threads.net/@agung.ribowo/post/DbJ5ylGERbi",
+    "timestamp": "2026-07-24T08:33:23.113Z"
+  },
+  {
+    "text": "🛠️ VPS Maintenance Series #03\nWaktu saya melakukan maintenance VPS, penggunaan disk masih sekitar 44%.\nBanyak anggapan umum maintenance itu dilakukan ketika server mulai bermasalah.\n💥CPU tinggi.\n💥Disk hampir habis.\n💥Service mulai error.\nPadahal maintenance yang paling efektif justru dilakukan sebelum semua itu terjadi.\n\n🚗Saya ibaratkan seperti ganti oli mobil.\nTidak menunggu mesin macet dulu baru ganti oli.\n💨Karena tujuan maintenance bukan memperbaiki kerusakan.\nMelainkan mencegah kerusakan.",
+    "image": "https://scontent-iad3-2.cdninstagram.com/v/t51.82787-15/752786595_17936628054337454_2313338936216445741_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&ig_cache_key=Mzk0NzIxNTg1MzI1NTExMjk2NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0OC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=i-sw7EkqWYkQ7kNvwHoEt-6&_nc_oc=AdrjHC_o8NbDXIZfyePaUiN_YqWbjhcbF8YUDdtTX-YKEOse5cLhFmHTwsXImrSTkng&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_gid=7DPYi00I8FolWnE4tRp6Ug&_nc_ss=7a22e&oh=00_AQCoFOZzkUJFUpuvj1pNLmSCWCq3OtV32c8Eqb0Hg5iN5w&oe=6A68E84F",
+    "url": "https://www.threads.net/@agung.ribowo/post/DbHU-fBD7kF",
+    "timestamp": "2026-07-23T08:33:23.114Z"
+  },
+  {
+    "text": "🛠️ VPS Maintenance #02 - Docker Images\nSebelumnya saya mengira database adalah penyebab utama disk VPS cepat penuh. Ternyata setelah saya cek...\njustru Docker yang mengambil ruang paling besar.\n\nSaat maintenance kemarin saya menemukan:\n👉Docker build cache\n👉Image lama\n👉Orphan volume\n👉Container logs\n\n🧩Kalau dijumlahkan...\nruangnya jauh lebih besar daripada database yang sedang berjalan.\n🚀Padahal aplikasi tetap normal.\nTidak ada error.",
+    "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/753170112_17936625930337454_5149410772061608312_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&ig_cache_key=Mzk0NjQ5MDkwNTgxNzY0NjY1OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0OC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=eeShuQAtHH4Q7kNvwG5cwfM&_nc_oc=AdrmU2G3NN56XE1CPZKqHVVZsZe83qwVzd7ZmZQujfd7xjyK5jafvrFFwQkZtFncqyM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_gid=kBG4O6zzwKruPSwV6Y2ztA&_nc_ss=7a22e&oh=00_AQApF0jD8BzdlC0EaZaLybFjclVSDJ7E6UPCyxhpDpDrYQ&oe=6A68EF06",
+    "url": "https://www.threads.net/@agung.ribowo/post/DbEwJHGkgZC",
+    "timestamp": "2026-07-22T08:33:23.114Z"
+  },
+  {
+    "text": "🛠️ VPS Maintenance Series #01 — Disk Cleanup\n\nHari ini saya menyempatkan maintenance rutin salah satu VPS yang saya gunakan.\n❌Tidak ada error.\n❌Tidak ada alert.\n❌Tidak ada service yang bermasalah.\n\nHanya maintenance yang memang sudah waktunya dilakukan.\n\nSetelah selesai, saya cukup terkejut melihat hasilnya.\n💾 Ruang disk yang berhasil kembali sekitar 16GB.\nPenggunaan storage turun dari sekitar 44% menjadi 22%.\nPadahal saya tidak menghapus project ataupun database.",
+    "image": "https://scontent-iad6-1.cdninstagram.com/v/t51.82787-15/752597129_17936622951337454_6282656363670435913_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=Mzk0NTc3NTcxNTM5NjYwMzAwMg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0OC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=NLApsee4Pa0Q7kNvwGDwvvl&_nc_oc=AdrRkXu0zKE92dbN3yYzJrIYZW8ANQdx2ie2elDo27EVDIkqa4KgaC9MeqeGToex8ts&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&_nc_gid=2yT2lFJYBLIML7DxiWNMhQ&_nc_ss=7a22e&oh=00_AQD2c8AqRMtlcc8Shw5iEacjMUE4G-1-GA3hRxackug2_w&oe=6A68F233",
+    "url": "https://www.threads.net/@agung.ribowo/post/DbCNhuHk8x6",
+    "timestamp": "2026-07-21T08:33:23.114Z"
+  },
+  {
+    "text": "👉Kedua:\n🧠 Cek penggunaan RAM\n\nfree -h\n\nRAM yang terus mendekati batas bisa menyebabkan:\n🔄service lambat\n🔄container restart\n🔄OOM killer aktif\n\nTidak harus selalu kecil.\nYang penting memahami pola penggunaannya.\n\n👉Ketiga:\n⚡ Cek CPU dan load\n\nhtop\n\nSaya tidak hanya melihat angka CPU tinggi.\nYang lebih penting: \"Kenapa CPU tinggi?\"\nApakah karena traffic normal? Proses aplikasi?\n🎯Atau ada workload yang tidak seharusnya berjalan?",
+    "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/753267529_17936792541337454_6146237045492294426_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&ig_cache_key=Mzk0Nzk0MDcxMjgyMjE1MDg4Mg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0OC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=I05sw-sl22wQ7kNvwGxdxQ6&_nc_oc=Adq8Ps8bVJy6AB5Ks9h2Cx01EdL3J-YPj4tX4OexghTEZ4DuCNfs2DWBt1f_SrVAswQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_gid=RQNDUh9IbnG18pc5Yzo3Pg&_nc_ss=7a22e&oh=00_AQAAZLgaxK4Fmn_4f_zRRhV3enwQXngf4_ue0V_UIRxFzw&oe=6A68DED1",
+    "url": "https://www.threads.net/@agung.ribowo/post/DbJ5zsFkWWJ",
+    "timestamp": "2026-07-20T08:33:23.114Z"
+  },
+  {
+    "text": "👉Keempat:\n🐳 Cek penggunaan Docker\n\ndocker system df\n\nDocker sangat membantu deployment.\nTetapi image lama, build cache, dan volume yang tidak digunakan bisa diam-diam memakan storage.\n\n👉Kelima:\n🧹 Cleanup resource yang sudah tidak diperlukan\n\nContohnya:\n💨unused image\n💨build cache\n💨orphan volume\n💨system logs\n\nServer yang sehat bukan berarti tidak pernah dibersihkan.\nTetapi resource-nya selalu terkontrol.",
+    "image": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/753267529_17936792541337454_6146237045492294426_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&ig_cache_key=Mzk0Nzk0MDcxMjgyMjE1MDg4Mg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0OC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=I05sw-sl22wQ7kNvwGxdxQ6&_nc_oc=Adq8Ps8bVJy6AB5Ks9h2Cx01EdL3J-YPj4tX4OexghTEZ4DuCNfs2DWBt1f_SrVAswQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_gid=It8S1WS-QXR8Y6snQtJyDQ&_nc_ss=7a22e&oh=00_AQCYCtgsj0r2sSEXyMP4GpC1Cu3cVJs6eiEORFe-SQr6aw&oe=6A68DED1",
+    "url": "https://www.threads.net/@agung.ribowo/post/DbJ50tDkfmk",
+    "timestamp": "2026-07-19T08:33:23.114Z"
+  }
+]
