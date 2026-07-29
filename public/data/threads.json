@@ -1,38 +1,38 @@
 [
   {
+    "text": "🛠️ VPS Maintenance #09 — Yang Tidak Saya Hapus\nBanyak orang ragu menjalankan:\n👉docker system prune\nTakut semua container dan data ikut terhapus.\nPadahal tidak begitu.\n\nYang tidak dihapus:\n✅ Running container\n✅ Active volume\n✅ Image yang masih digunakan\n\nResource yang masih dipakai tetap aman.",
+    "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/756682865_17937327318337454_7737891885455899448_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=Mzk1MTU2NDcwMzE4MDMwNTE4Ng%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0OC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=pw0Jc4C9SM4Q7kNvwHPxUR3&_nc_oc=AdqRoilIpkH7MFoBdqwJ_1jEwXKSF2HpRDAYwIinlLoh-FQTb4J7HW3c6yapGkno7oA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&_nc_gid=WT45Ha9i_hAj6-2zW8Ul_Q&_nc_ss=7a22e&oh=00_AQChINDgaHWLAPOESy9W4ai2lE7i5uj1HS3HPMkJSYDqhw&oe=6A6FA9B0",
+    "url": "https://www.threads.net/@agung.ribowo/post/DbWxylICLMi",
+    "timestamp": "2026-07-29T08:48:12.657Z"
+  },
+  {
     "text": "🛠️ VPS Maintenance #08\nBerapa sering VPS perlu dibersihkan?\n\nSaya membaginya menjadi tiga level:\n📅 Weekly\n📅 Monthly\n📅 Quarterly\n\n📅 Weekly\nCek kondisi server:\n✅df -h\n✅docker system df\n\nTujuannya sederhana:\n👉 tahu penggunaan disk\n👉 tahu penggunaan Docker\nJangan menunggu disk penuh.",
-    "image": "https://scontent-sjc3-1.cdninstagram.com/v/t51.82787-15/756525095_17937326016337454_5674690207112621473_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=Mzk1MDgzOTgyOTQ0NTAxOTQzNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0OC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=p0hFLBZriKcQ7kNvwHpH3Vh&_nc_oc=Adqg5ebo8wObUIRyGM42W0pXj6BUitik_PEXp00B-k08YxpV2rN10pVS3_x1z3lX5kI&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sjc3-1.cdninstagram.com&_nc_gid=bkydUIPmOu2VXeUpvkxIeQ&_nc_ss=7a22e&oh=00_AQAPqujdYfgIA278pBlTQurT8ClhfIJYASwhwUvo3___HA&oe=6A6E516C",
+    "image": "https://scontent-sjc3-1.cdninstagram.com/v/t51.82787-15/756525095_17937326016337454_5674690207112621473_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=Mzk1MDgzOTgyOTQ0NTAxOTQzNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0OC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=p0hFLBZriKcQ7kNvwE81iv9&_nc_oc=AdowNxj_i_sx6AU0EVd8ec4SfM20N7ADeb93T570FhGkjt3Wt0gZ1FximtWyJiqInTg&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sjc3-1.cdninstagram.com&_nc_gid=LliVRi7-ouL0SQbG2v4oyQ&_nc_ss=7a22e&oh=00_AQA9iKIdYwqB80YLxSxW6p7URVKwV3JSff3-G6OJtaBXeg&oe=6A6FA2EC",
     "url": "https://www.threads.net/@agung.ribowo/post/DbUM-R2iQcq",
-    "timestamp": "2026-07-28T08:41:06.311Z"
+    "timestamp": "2026-07-28T08:48:12.658Z"
   },
   {
     "text": "🛠️ VPS Maintenance #07 — Build Cache Itu Diam-diam Membengkak\nBuild cache Docker ternyata hampir 8GB.\nPadahal saya tidak pernah merasa membuat file sebesar itu.\n👉Tidak ada satu file besar.\n👉Tidak ada satu project yang tiba-tiba berukuran 8GB.\n👉Hanya cache.\n\n🔄Setiap build image, Docker bisa menyimpan layer hasil proses build.\nTujuannya Build berikutnya bisa lebih cepat karena sebagian layer dapat digunakan kembali.\nMasalahnya...\n💥Cache yang tidak pernah dibersihkan juga tetap memakan disk.",
-    "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/753429491_17937169218337454_2682414211919181634_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ig_cache_key=Mzk1MDExNDk2MjEyNzU4MDgwNw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTUzNi5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=JxXx9N9ki1AQ7kNvwEbdpk6&_nc_oc=AdocdA6OBVqt2wLi5njW7hna2bYNGbpyEB04pB33zwdWtsS1axTOkMmCfMgebbEENPE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&_nc_gid=jliRdUsoRq1osYFStcb6Iw&_nc_ss=7a22e&oh=00_AQAYXaoYWaCx4iHOTsF55THFJLRC5wyCpohTMC2I8nmK2g&oe=6A6E4459",
+    "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/753429491_17937169218337454_2682414211919181634_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ig_cache_key=Mzk1MDExNDk2MjEyNzU4MDgwNw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTUzNi5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=G2KTUkU2b8IQ7kNvwECR6YO&_nc_oc=Adpzfb2zLPzmBrVL1b6V-X1r3okC5IjVVXiLLZZxk-wwfVp6_Y4bbmKaFF9rsGwuEss&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&_nc_gid=JjUmghNgLjDOKZJwFT6vOA&_nc_ss=7a22e&oh=00_AQBc-WiDVMKIvE83ZqkwSrssk8AEHv_JugeWFhN6-JupgQ&oe=6A6F95D9",
     "url": "https://www.threads.net/@agung.ribowo/post/DbRoKEjke6H",
-    "timestamp": "2026-07-27T08:41:06.311Z"
+    "timestamp": "2026-07-27T08:48:12.658Z"
   },
   {
     "text": "🛠️ VPS Maintenance #06 — Reliability Membutuhkan Buffer\nResource server tidak harus digunakan sampai 100%.\nBagi saya, selalu perlu ada buffer.\nMisalnya:\n💾 Disk: 70%\n⚡ CPU: 80%\n🧠 RAM: 80%\n\nKenapa?\nKarena kondisi server bisa berubah.\n📈Traffic naik.\nProses tertentu tiba-tiba lebih berat.\n📊Log bertambah.\nBackup membutuhkan ruang.\n💀Kalau resource sudah penuh, kita tidak punya banyak ruang untuk menghadapinya.",
-    "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/754057926_17936894769337454_1365382565091624439_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ig_cache_key=Mzk0OTM5MDM4MzQxMTIzNzI5MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0OC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=km05fIs8ko4Q7kNvwGzL0dk&_nc_oc=AdrTXh9XTYxJ5AQbcEj4Tb-4ch-29C-Zi6MG03zuvNX8fbzfh1EwZF6Y9g4t0GkAcNA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&_nc_gid=IP52aFz2uE-19qOoP6S-qg&_nc_ss=7a22e&oh=00_AQDvD9RFMaPFCN6NZSLxxFl0DNCqGicq8rPYlj7Vl95-mg&oe=6A6E5073",
+    "image": "https://scontent-sjc6-1.cdninstagram.com/v/t51.82787-15/754057926_17936894769337454_1365382565091624439_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ig_cache_key=Mzk0OTM5MDM4MzQxMTIzNzI5MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0OC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=km05fIs8ko4Q7kNvwH8CXPZ&_nc_oc=Ado2hs_5FQ4gUyXySIlsvm13_pujcsiJpHmmtiiLrl09V8RsRbuhCGfE9vlGugPzvdQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&_nc_gid=Q5wLf9RsAFHysJJ4MkcHFg&_nc_ss=7a22e&oh=00_AQAT4yxPbrT7aPNZo5TOWAOhF4TVohN3QJk2jfHSUsGg6Q&oe=6A6FA1F3",
     "url": "https://www.threads.net/@agung.ribowo/post/DbPDaECkhGr",
-    "timestamp": "2026-07-26T08:41:06.311Z"
+    "timestamp": "2026-07-26T08:48:12.658Z"
   },
   {
-    "text": "🛠️ VPS Maintenance #05 - 5 Menit Monitoring vs 5 Jam Recovery\n\nJangan tunggu server bermasalah baru mulai monitoring.\nLima menit melihat dashboard bisa menghemat lima jam recovery.\nSetidaknya, itu yang saya pelajari setelah beberapa tahun mengelola server.\nTanpa monitoring, kita biasanya baru tahu ada masalah ketika pengguna mulai mengeluh.\n💥\"Web-nya lambat.\"\n💥\"API tidak bisa diakses.\"\n💥\"Service-nya mati.\"\n\nSaat itu kita baru mulai cari:\n👉 Apa yang terjadi?\n👉 Sejak kapan?\n👉 Penyebabnya apa?",
-    "image": "https://scontent-sjc3-1.cdninstagram.com/v/t51.82787-15/753282462_17936804208337454_4312946483145752768_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=Mzk0ODY2NTMxODQ4MTYwNDI5OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0OC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=ThBDxBwQ6CUQ7kNvwHp5gXr&_nc_oc=Adolq0FR2ULclIP_QQUNiLwOQs4AcFfLrBJ0nOqNbFWna4yVEv5zERqYg4jOLReLQnE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sjc3-1.cdninstagram.com&_nc_gid=FEINy_lh8ZLTioSbVtX_bQ&_nc_ss=7a22e&oh=00_AQCZGI98rlieMXVhNYUFNJhDTNwaqnUJ81IxOO4lenN5yw&oe=6A6E55BD",
-    "url": "https://www.threads.net/@agung.ribowo/post/DbMei-tAC7K",
-    "timestamp": "2026-07-25T08:41:06.311Z"
+    "text": "Resource yang dibersihkan:\n❌ Stopped container yang tidak digunakan\n❌ Unused image\n❌ Orphan volume\n❌ Build cache\n\n🎯Jadi sebelum melakukan cleanup, pastikan Anda memahami resource mana yang masih digunakan.\n🐳Docker mempermudah deployment.\nTetapi resource yang sudah tidak diperlukan tetap perlu dibersihkan.\n\n💡Pernah ragu menjalankan docker system prune karena takut menghapus sesuatu yang penting?\n#Docker #Linux #VPS #DevOps #Maintenance #EngineeringDiary",
+    "image": "",
+    "url": "https://www.threads.net/@agung.ribowo/post/DbWx0zxCC5Y",
+    "timestamp": "2026-07-25T08:48:12.658Z"
   },
   {
     "text": "📅 Monthly\nLakukan cleanup:\n✅docker system prune\n✅journalctl --vacuum-size=100M\n✅apt clean\nBersihkan resource yang memang sudah tidak digunakan.\n\n📅 Quarterly\nLakukan maintenance yang lebih besar:\n✅apt update && apt upgrade\n✅Update Docker images.\n🔄emudian restart service jika diperlukan.",
-    "image": "https://scontent-sjc3-1.cdninstagram.com/v/t51.82787-15/756525095_17937326016337454_5674690207112621473_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=Mzk1MDgzOTgyOTQ0NTAxOTQzNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0OC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=p0hFLBZriKcQ7kNvwHpH3Vh&_nc_oc=Adqg5ebo8wObUIRyGM42W0pXj6BUitik_PEXp00B-k08YxpV2rN10pVS3_x1z3lX5kI&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sjc3-1.cdninstagram.com&_nc_gid=ZNMUyLneMteHl1WfZRM1YA&_nc_ss=7a22e&oh=00_AQALe-TJ8Ma-24xePBsOXHogRUfjOwtZ5ERrpHbyfQUOmg&oe=6A6E516C",
+    "image": "https://scontent-sjc3-1.cdninstagram.com/v/t51.82787-15/756525095_17937326016337454_5674690207112621473_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=Mzk1MDgzOTgyOTQ0NTAxOTQzNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0OC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=p0hFLBZriKcQ7kNvwE81iv9&_nc_oc=AdowNxj_i_sx6AU0EVd8ec4SfM20N7ADeb93T570FhGkjt3Wt0gZ1FximtWyJiqInTg&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sjc3-1.cdninstagram.com&_nc_gid=YN8q64AKorfmmnzljP_XHg&_nc_ss=7a22e&oh=00_AQAM_HXm2UKRCj4AqZNBY43SoF-e4leNUZG11vOsRHrdxA&oe=6A6FA2EC",
     "url": "https://www.threads.net/@agung.ribowo/post/DbUM_SBCdGf",
-    "timestamp": "2026-07-24T08:41:06.311Z"
-  },
-  {
-    "text": "Jadi, maintenance VPS tidak harus dilakukan setiap hari.\nYang penting punya rutinitas:\n✅Weekly → Check\n✅Monthly → Cleanup\n✅Quarterly → Update\n\n🛠️ Sedikit maintenance rutin lebih baik daripada menunggu VPS bermasalah.\n🙏Kalau Anda mengelola VPS, punya jadwal maintenance rutin juga?\n#Linux #VPS #Docker #DevOps #Maintenance #EngineeringDiary",
-    "image": "https://scontent-sjc3-1.cdninstagram.com/v/t51.82787-15/756525095_17937326016337454_5674690207112621473_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=Mzk1MDgzOTgyOTQ0NTAxOTQzNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0OC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=p0hFLBZriKcQ7kNvwHpH3Vh&_nc_oc=Adqg5ebo8wObUIRyGM42W0pXj6BUitik_PEXp00B-k08YxpV2rN10pVS3_x1z3lX5kI&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sjc3-1.cdninstagram.com&_nc_gid=VznQV2GZb7yZSCRY2QGCLQ&_nc_ss=7a22e&oh=00_AQC2-fTiFa9tj0DMiVi1l7VikDwYJfDCwNrG59-zGZePSQ&oe=6A6E516C",
-    "url": "https://www.threads.net/@agung.ribowo/post/DbUNAWqCcY9",
-    "timestamp": "2026-07-23T08:41:06.311Z"
+    "timestamp": "2026-07-24T08:48:12.658Z"
   }
 ]
